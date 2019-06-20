@@ -19,9 +19,6 @@ public class ApplicationIocConfig {
 		return new BoardDaoImpl();
 	}
 	
-	@Resource(name = "boardService")
-	private IboardService boardService;
-	
 	/*
 	<bean id="boardService" class="kr.or.ddit.board.service.BoardServiceimpl">
 		<property name="boardDao" ref="boardDao"/>
@@ -29,11 +26,10 @@ public class ApplicationIocConfig {
 	*/
 	
 	@Bean
-	public BoardServiceimpl boardDservice() {
+	public BoardServiceimpl boardService() {
 		BoardServiceimpl boardService = new BoardServiceimpl();
-		boardService.setName("");
-		
-		
+		boardService.setName("brown");
+		boardService.setBoardDao(boardDao());
 		return boardService;
 	}
 }
