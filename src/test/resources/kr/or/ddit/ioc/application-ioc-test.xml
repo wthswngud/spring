@@ -15,7 +15,6 @@
 	<bean id="boardDaoPrototype" class="kr.or.ddit.board.dao.BoardDaoImpl" scope="prototype"/>
 	
 	
-	
 	<bean id="boardService" class="kr.or.ddit.board.service.BoardServiceimpl">
 		<!-- boardService의 filed, property -->
 		<!-- setter injection -->
