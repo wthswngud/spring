@@ -10,8 +10,19 @@
 	<!-- IboardDao boardDao = new BoardDao(); -->
 	<bean id="boardDao" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
 	
+	<!-- prototype scope boardDao -->
+	<!-- prototype scope : 요청시마다 새로운 객체를 만들어 준다. -->
+	<bean id="boardDaoPrototype" class="kr.or.ddit.board.dao.BoardDaoImpl" scope="prototype"/>
+	
+	
+	
 	<bean id="boardService" class="kr.or.ddit.board.service.BoardServiceimpl">
 		<!-- boardService의 filed, property -->
+		<!-- setter injection -->
 		<property name="boardDao" ref="boardDao"/>
+	</bean>
+	
+	<bean id="boardServiceConstructor" class="kr.or.ddit.board.service.BoardServiceimpl">
+		<constructor-arg ref="boardDao"/>
 	</bean>
 </beans>
