@@ -1,6 +1,5 @@
 package kr.or.ddit.ioc;
 
-import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import kr.or.ddit.board.dao.BoardDaoImpl;
 import kr.or.ddit.board.dao.IboardDao;
 import kr.or.ddit.board.service.BoardServiceimpl;
-import kr.or.ddit.board.service.IboardService;
 
 @Configuration
 public class ApplicationIocConfig {

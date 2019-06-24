@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>spring</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -9,4 +9,51 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 
+     톰캣이 기동될 때 spring 환경을 구성
+     applicationContext를 개발자가 만드는 것이 아니라
+     톰캣 환경에다가 설정
+     - context-param : 초기화 파라미터(application)
+     - init-param : 초기화 파라미터(servlet, filter)
+   -->
+  
+  <!-- needed for ContextLoaderListener -->
+  <!-- logic관련 spring bean ioc -->
+   <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+          <!-- logic : service, dao, datasource, transaction -->
+          classpath:kr/or/ddit/config/spring/root-content.xml
+            classpath:kr/or/ddit/config/spring/application-datasource.xml
+            classpath:kr/or/ddit/config/spring/application-transaction.xml
+      </param-value>
+   </context-param>
+
+   <!-- Bootstraps the root web application context before servlet initialization -->
+   <listener>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+   </listener>
+  
+  <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+  <!-- 요청관련 spring bean ioc -->   
+   <servlet>
+      <servlet-name>springDispatcherServlet</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <init-param>
+         <param-name>contextConfigLocation</param-name>
+         <param-value>classpath:kr/or/ddit/config/spring/application-context.xml
+            
+                  
+         </param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <!-- Map all requests to the DispatcherServlet for handling -->
+   <servlet-mapping>
+      <servlet-name>springDispatcherServlet</servlet-name>
+      <url-pattern>/</url-pattern> <!-- / = dafault servlet -->
+   </servlet-mapping>
+  
 </web-app>

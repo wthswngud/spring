@@ -16,7 +16,7 @@ import kr.or.ddit.board.service.IboardService;
 @ContextConfiguration("classpath:kr/or/ddit/ioc/application-ioc-st.xml")
 public class SpringIocStTest {
 	
-	@Resource(name="boardDao")
+	@Resource(name="boardDaoImpl")
 	private IboardDao boardDao;
 	@Resource(name="boardService")
 	private IboardService boardService;

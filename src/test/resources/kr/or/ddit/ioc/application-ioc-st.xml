@@ -3,9 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="boardDao" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
+	<bean id="boardDaoImpl" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
 	
 	<bean id="boardService" class="kr.or.ddit.board.service.BoardServiceimpl">
-		<property name="boardDao" ref="boardDao"/>
+		<property name="boardDao" ref="boardDaoImpl"/>
 	</bean>
 </beans>

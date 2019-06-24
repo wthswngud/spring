@@ -17,4 +17,6 @@ public interface IuserService {
 	int insertUser(UserVO userVo);
 
 	int deleteUser(String string);
+	
+	UserVO getUser(String userId);
 }

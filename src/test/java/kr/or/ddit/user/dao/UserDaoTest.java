@@ -50,7 +50,7 @@ public class UserDaoTest extends LogicTestEnv {
 		List<UserVO> userList = dao.userList();
 
 		/*** Then ***/
-		assertEquals("brown", userList.get(0).getUserId());
+		assertEquals("user39", userList.get(0).getUserId());
 		assertEquals(105, userList.size());
 //		logger.debug("userList : {}", userList);
 	}
@@ -66,7 +66,8 @@ public class UserDaoTest extends LogicTestEnv {
 		UserVO userVO = dao.getUser(userId);
 		/*** Then ***/
 		assertEquals("브라운", userVO.getName());
-		logger.debug("uservo : {}", userVO.getName());
+		assertEquals("곰", userVO.getAlias());
+//		logger.debug("uservo : {}", userVO.getName());
 	}
 
 //	//사용자 페이징 리스트 조회
@@ -111,7 +112,6 @@ public class UserDaoTest extends LogicTestEnv {
 		/*** Given ***/
 		// 사용자 정보를 담고 있는 vo객체 준비
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 		UserVO userVo = new UserVO("userTest", "대덕인", "중앙로", "userTest1234", "대전광역시 중구 중앙로76", "영민빌딩", "", "", "34940",
 				sdf.parse("2019-05-31"));
 
@@ -131,7 +131,7 @@ public class UserDaoTest extends LogicTestEnv {
 		/*** Given ***/
 
 		/*** When ***/
-		int result = dao.deleteUser("userTest");
+		int result = dao.deleteUser("user39");
 
 		/*** Then ***/
 		assertEquals(1, result);
@@ -142,7 +142,7 @@ public class UserDaoTest extends LogicTestEnv {
 		/*** Given ***/
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-		UserVO userVo = new UserVO("userTest", "대덕인", "중앙로", "userTest1234", "대전광역시 중구 중앙로76", "영민빌딩", "", "", "34940",
+		UserVO userVo = new UserVO("user39", "대덕인", "중앙로", "userTest1234", "대전광역시 중구 중앙로76", "영민빌딩", "", "", "34940",
 				sdf.parse("2019-05-31"));
 
 		/*** When ***/

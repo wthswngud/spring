@@ -53,4 +53,15 @@ public class UserServiceTest extends LogicTestEnv{
 		/*** Then ***/
 		assertEquals(1, result);
 	}
+	
+	@Test
+	public void getUserTest() {
+		/*** Given ***/
+		String userId = "brown";
+		/*** When ***/
+		UserVO userVO = service.getUser(userId);
+		/*** Then ***/
+		assertEquals("브라운", userVO.getName());
+		assertEquals("곰", userVO.getAlias());
+	}
 }

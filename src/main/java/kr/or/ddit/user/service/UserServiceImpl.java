@@ -35,4 +35,9 @@ public class UserServiceImpl implements IuserService{
 	public int deleteUser(String string) {
 		return dao.deleteUser(string);
 	}
+
+	@Override
+	public UserVO getUser(String userId) {
+		return dao.getUser(userId);
+	}
 }
