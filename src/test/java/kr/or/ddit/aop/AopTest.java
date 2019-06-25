@@ -14,7 +14,7 @@ import kr.or.ddit.board.service.IboardService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:kr/or/ddit/aop/application-aop.xml")
 public class AopTest {
-	@Resource(name = "boardService")
+	@Resource(name = "boardServiceimpl")
 	private IboardService boardService;
 	
 	@Test

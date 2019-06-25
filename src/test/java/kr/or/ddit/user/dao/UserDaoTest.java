@@ -14,13 +14,16 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
+import kr.or.ddit.paging.model.PageVO;
 import kr.or.ddit.testenv.LogicTestEnv;
 import kr.or.ddit.user.model.UserVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserDaoTest extends LogicTestEnv {
 	private static final Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
+	CharacterEncodingFilter a = new CharacterEncodingFilter("utf-8");
 
 	@Resource(name = "userDaoImpl")
 	private IuserDao dao;
@@ -40,8 +43,11 @@ public class UserDaoTest extends LogicTestEnv {
 	}
 
 	/**
-	 * Method : userListTest 작성자 : PC19 변경이력 : Method 설명 : 사용자 전체 조회 테스트
-	 */
+	* Method : userListTest
+	* 작성자 : PC19
+	* 변경이력 :
+	* Method 설명 : 전체 사용자 조회
+	*/
 	@Test
 	public void userListTest() {
 		/*** Given ***/
@@ -56,8 +62,11 @@ public class UserDaoTest extends LogicTestEnv {
 	}
 
 	/**
-	 * Method : getUserTest 작성자 : PC19 변경이력 : Method 설명 : 사용자 조회 테스트
-	 */
+	* Method : getUserTest
+	* 작성자 : PC19
+	* 변경이력 :
+	* Method 설명 : 사용자 정보 조회 테스트
+	*/
 	@Test
 	public void getUserTest() {
 		/*** Given ***/
@@ -88,8 +97,11 @@ public class UserDaoTest extends LogicTestEnv {
 //	}
 
 	/**
-	 * Method : usersCntTest 작성자 : PC19 변경이력 : Method 설명 : 사용자 전체수 조회 테스트
-	 */
+	* Method : usersCntTest
+	* 작성자 : PC19
+	* 변경이력 :
+	* Method 설명 : 사용자 전체 수 조회 테스트
+	*/
 	@Test
 	public void usersCntTest() {
 		/*** Given ***/
@@ -103,10 +115,12 @@ public class UserDaoTest extends LogicTestEnv {
 	}
 
 	/**
-	 * Method : insertUserTest 작성자 : PC19 변경이력 :
-	 * 
-	 * @throws ParseException Method 설명 : 사용자 등록
-	 */
+	* Method : insertUserTest
+	* 작성자 : PC19
+	* 변경이력 :
+	* @throws ParseException
+	* Method 설명 : 사용자 정보 등록 테스트
+	*/
 	@Test
 	public void insertUserTest() throws ParseException {
 		/*** Given ***/
@@ -123,9 +137,11 @@ public class UserDaoTest extends LogicTestEnv {
 	}
 
 	/**
-	 * Method : deleteUserTest 작성자 : PC19 변경이력 : Method 설명 :사용자 삭제
-	 */
-
+	* Method : deleteUserTest
+	* 작성자 : PC19
+	* 변경이력 :
+	* Method 설명 : 사용자 정보 삭제 테스트
+	*/
 	@Test
 	public void deleteUserTest() {
 		/*** Given ***/
@@ -137,6 +153,12 @@ public class UserDaoTest extends LogicTestEnv {
 		assertEquals(1, result);
 	}
 
+	/**
+	* Method : modiUserTest
+	* 작성자 : PC19
+	* 변경이력 :
+	* Method 설명 : 사용자 정보 수정 테스트
+	*/
 	@Test
 	public void modiUserTest() throws ParseException {
 		/*** Given ***/
@@ -150,5 +172,18 @@ public class UserDaoTest extends LogicTestEnv {
 
 		/*** Then ***/
 		assertEquals(1, result);
+	}
+	
+	@Test
+	public void getPaging() {
+		/***Given***/
+		PageVO pageVO = new PageVO(1, 10);
+
+		/***When***/
+		List<UserVO> userList = dao.getPaging(pageVO);
+		
+		/***Then***/
+		assertNotNull(userList);
+		assertEquals(10, userList.size());
 	}
 }

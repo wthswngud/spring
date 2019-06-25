@@ -28,7 +28,6 @@ public class ApplicationIocConfigTest {
 	@Test
 	public void javaSpringBeanTest() {
 		/***Given***/
-		
 
 		/***When***/
 		String msg = boardDao.sayHello();

@@ -14,7 +14,7 @@ import kr.or.ddit.board.service.IboardService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {AopScanConfig.class})
 public class AopScanJavaConfigTest {
-	@Resource(name = "boardService")
+	@Resource(name = "boardServiceimpl")
 	private IboardService boardService;
 	
 	@Test

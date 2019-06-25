@@ -21,10 +21,10 @@ public class ApplicationIocBeanScanConfigTest {
 	// base package 하위 모든 클래스를 scan하여 스프링 빈으로 등록
 	// boardDao, boardService 스프링 빈이 정상적으로 생성되었는지
 	
-	@Resource(name = "boardDao")
+	@Resource(name = "boardDaoImpl")
 	private IboardDao boardDao;
 	
-	@Resource(name = "boardService")
+	@Resource(name = "boardServiceimpl")
 	private IboardService boardService;
 
 	@Test

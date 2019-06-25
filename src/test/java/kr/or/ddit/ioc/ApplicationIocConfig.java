@@ -13,7 +13,7 @@ public class ApplicationIocConfig {
 //	<bean id="boardDao" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
 	
 	@Bean
-	public IboardDao boardDao() {
+	public IboardDao boardDaoImpl() {
 		return new BoardDaoImpl();
 	}
 	
@@ -24,10 +24,10 @@ public class ApplicationIocConfig {
 	*/
 	
 	@Bean
-	public BoardServiceimpl boardService() {
+	public BoardServiceimpl boardServiceimpl() {
 		BoardServiceimpl boardService = new BoardServiceimpl();
-		boardService.setName("brown");
-		boardService.setBoardDao(boardDao());
+//		boardService.setName("brown");
+		boardService.setBoardDao(boardDaoImpl());
 		return boardService;
 	}
 }

@@ -16,24 +16,38 @@ import kr.or.ddit.board.service.IboardService;
 @ContextConfiguration("classpath:kr/or/ddit/ioc/application-ioc-bean-scan.xml")
 public class SpringIocBeanScanTest {
 	
-	// <bean> 태그를 이용하여 스프링 빈을 등록하는 방식을 사용하지 않고
+	// <bean 태그를 이용하여 스프링 빈을 등록하는 방식을 사용하지 않고
 	// @Controller, @Service, @Respository 어노테이션을 적용한 클래스를
-	// base package 하위 모든 클래스를 scan하여 스프링 빈으로 등록
-	// boardDao, boardService 스프링 빈이 정상적으로 생성되었는지
+	// base package 하위 모든 클래스를 scan 하여 스프링 빈으로 등록.
 	
-	@Resource(name = "boardDao")
+	//boardDao, boardService 스프링 빈이 정상적으로 생성 되었는지
+	@Resource(name="boardDaoImpl")
 	private IboardDao boardDao;
 	
-//	@Resource(name = "boardService")
-//	private IboardService boardService;
-
+	@Resource(name="boardServiceimpl")
+	private IboardService boardService;
+	
+	/** 
+	 * Method   : springBeanScanTest
+	 * 작성자 : SEM
+	 * 변경이력 :  
+	 * Method 설명 : spring bean scan 테스트 
+	 */
 	@Test
 	public void springBeanScanTest() {
 		/***Given***/
 		
 		/***When***/
-
+		String msg = boardDao.sayHello();
+		
 		/***Then***/
-//		assertNotNull(boardDao);
+		assertNotNull(boardDao);
+		assertEquals("boardDao sayHello", msg);
+		assertEquals(boardDao, boardService.getBoardDao());
 	}
+
 }
+
+
+
+

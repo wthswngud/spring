@@ -16,7 +16,7 @@ import kr.or.ddit.board.service.IboardService;
 @ContextConfiguration("classpath:kr/or/ddit/ioc/application-ioc-test.xml")
 public class StringIocJunitTest {
 
-	@Resource(name = "boardDao")
+	@Resource(name = "boardDaoImpl")
 	private IboardDao boardDao;
 	
 	@Resource(name = "boardDaoPrototype")

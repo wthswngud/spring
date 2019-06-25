@@ -11,6 +11,7 @@
 	<!-- 이부분 추가 -->
 	<typeAliases>
 		<typeAlias  alias="userVO" type="kr.or.ddit.user.model.UserVO"/>
+		<typeAlias  alias="pageVo" type="kr.or.ddit.paging.model.PageVO"/>
 <!-- 		<typeAlias  alias="lprodVO" type="kr.or.ddit.user.model.LprodVO"/> -->
 <!-- 		<typeAlias  alias="pageVo" type="kr.or.ddit.paging.model.PageVO"/> -->
 	</typeAliases>
