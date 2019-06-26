@@ -89,7 +89,7 @@
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자 수정</h2>
 
-						<form action = "${cp}/modify" id="frm" class="form-horizontal" role="form" method="post"
+						<form action = "${cp}/user/modify" id="frm" class="form-horizontal" role="form" method="post"
 							enctype="multipart/form-data">
 							<input id="userId" name="userId" type="hidden"/>
 							<div class="form-group">
@@ -106,13 +106,13 @@
 								<label id="userLabel" for="userId" class="col-sm-2 control-label" >${userVO.userId}</label>
 							</div>
 							
-							<div class="form-group">
-								<label for="pass" class="col-sm-2 control-label">비밀번호</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="pass"
-									name="pass" placeholder="비밀번호" value="${userVO.pass}">
-								</div>
-							</div>
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="pass" class="col-sm-2 control-label">비밀번호</label> -->
+<!-- 								<div class="col-sm-10"> -->
+<!-- 									<input type="password" class="form-control" id="pass" -->
+<%-- 									name="pass" placeholder="비밀번호" value="${userVO.pass}"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자	이름</label>

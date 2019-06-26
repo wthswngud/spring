@@ -76,17 +76,17 @@
 	</select>
 
 	<insert id="insertUser" parameterType="userVO">
-		INSERT INTO USERS
+		INSERT INTO USERS(userid, name, alias, pass, addr1, addr2, zipcd, birth, path, filename)
 		VALUES( #{userId},
 		#{name},
 		#{alias},
 		#{pass},
 		#{addr1},
 		#{addr2},
-		#{path},
-		#{filename},
 		#{zipcd},
-		#{birth}
+		#{birth},
+		#{path},
+		#{filename}
 		)
 	</insert>
 
@@ -101,15 +101,15 @@
 	<update id="modiUser" parameterType="userVO">
 		UPDATE USERS
 		SET NAME =
-		#{name},
-		ALIAS = #{alias},
-		PASS = #{pass},
-		ADDR1 = #{addr1},
-		ADDR2 = #{addr2},
-		PATH = #{path},
-		FILENAME = #{filename},
-		ZIPCD = #{zipcd},
-		BIRTH = #{birth}
+			#{name},
+			ALIAS = #{alias},
+			ADDR1 = #{addr1},
+			ADDR2 = #{addr2},
+			PATH = #{path},
+			FILENAME = #{filename},
+			ZIPCD = #{zipcd},
+			BIRTH = #{birth}
+			
 		WHERE USERID = #{userId}
 	</update>
 
