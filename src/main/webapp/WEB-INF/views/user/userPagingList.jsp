@@ -38,6 +38,10 @@ u<%@page import="kr.or.ddit.paging.model.PageVO"%>
 			$("#userId").val(userId);
 			$("#frm").submit();
 		})
+		
+		$("#userRegBtn").on("click", function(){
+			$("#download").submit();
+		})
 	})
 </script>
 </head>
@@ -73,17 +77,13 @@ u<%@page import="kr.or.ddit.paging.model.PageVO"%>
 							</c:forEach>
 						</table>
 
-						<a href="${cp}/user/form" class="btn btn-default pull-right">사용자 등록</a>
-
 						<!-- 사용자 수 : 105건
-								 페이지네이션 : 11건 
-							-->
+							  페이지네이션 : 11건 
+						-->
 						<div class="text-center">
 							<ul class="pagination">
 
 								<c:set var="pageVo" value="${pageVo}" scope="request" />
-
-
 
 								<c:if test="${pageVo.page==1}">
 									<li class="disabled"><span>«</span></li>
@@ -92,8 +92,6 @@ u<%@page import="kr.or.ddit.paging.model.PageVO"%>
 									<li><a
 										href="${cp}/user/pagingList?page=${requestScope.pageVo.page-1}&pageSize=${requestScope.pageVo.pageSize}"><span>«</span></a></li>
 								</c:if>
-
-
 
 								<c:forEach begin="1" end="${paginationSize}" step="1" var="i"
 									varStatus="String">
@@ -105,9 +103,7 @@ u<%@page import="kr.or.ddit.paging.model.PageVO"%>
 											href="${cp}/user/pagingList?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
 									</c:if>
 								</c:forEach>
-
-
-
+								
 								<c:choose>
 									<c:when test="${pageVo.page == paginationSize}">
 										<li class="disabled"><span>»</span></li>
@@ -119,6 +115,16 @@ u<%@page import="kr.or.ddit.paging.model.PageVO"%>
 								</c:choose>
 							</ul>
 						</div>
+						<a href="${cp}/user/form" class="btn btn-default pull-right">사용자 등록</a>
+						
+						<form id="download" action="/user/userListExcel">
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<input type="hidden" name="filename" value="userList"/>
+									<button id = "userRegBtn" type="button" class="btn btn-default pull-right">엑셀 다운</button>
+								</div>
+							</div>
+						</form>
 					</div>
 					<!-- /.blog-main -->
 				</div>

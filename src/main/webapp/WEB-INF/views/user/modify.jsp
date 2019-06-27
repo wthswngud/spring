@@ -14,10 +14,10 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	$(document).ready(function(){
-		var msg = '${msg}';
-		if(msg != '')
-			alert(msg);
-		
+		<c:if test="${not empty msg}">
+			alert("${msg}");
+			<c:remove var="msg"/>
+		</c:if>
 		//주소찾기 버튼 이벤트 클릭 이벤트 핸들러
 		$("#search").on("click", function(){
 		    new daum.Postcode({

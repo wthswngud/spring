@@ -15,7 +15,7 @@
 	$(document).ready(function(){
 		<c:if test="${not empty msg}">
 			alert("${msg}");
-			<c:remove var="$(msg)"/>
+			<c:remove var="msg"/>
 		</c:if>
 		
 			var id = $("#labelId").text();
