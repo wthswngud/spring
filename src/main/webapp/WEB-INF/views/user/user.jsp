@@ -13,6 +13,11 @@
 <%@include file="/WEB-INF/views/common/basicLib.jsp"%>
 <script>
 	$(document).ready(function(){
+		<c:if test="${not empty msg}">
+			alert("${msg}");
+			<c:remove var="$(msg)"/>
+		</c:if>
+		
 			var id = $("#labelId").text();
 		$("#button").on("click", function(){
 			$("#userId").val(id);

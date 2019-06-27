@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.or.ddit.main.model.MainVO;
 import kr.or.ddit.user.model.UserVO;
 
 /*
@@ -141,6 +143,45 @@ public class MainController {
 	@RequestMapping("/main/header")
 	public String header(@RequestHeader(name="Accept"/*, required = false*/) String accept) {
 		logger.debug("Accept : {}", accept);
+		
+		return "main";
+	}
+	
+	@RequestMapping("/main/view")
+	public String view() {
+		
+		return "view";
+	}
+	
+	
+	// List<> 타입의 경우 @RequestParam 적용
+	@RequestMapping("/main/process")
+	public String process(HttpServletRequest request, String[] userId,
+						  @RequestParam("userId") List<String> userIdList,
+						  @RequestParam("name") List<String> nameList,
+						  MainVO mainVO) {
+		
+		String[] userIdArr = request.getParameterValues("userId");
+		String userIdParameter = request.getParameter("userId");
+		
+		logger.debug("userIdParameter : {}", userIdParameter);
+		
+		logger.debug("request.getParameterValues('userId')");
+		
+		for(String u : userIdArr) 
+			logger.debug("userId : {}", u);
+		
+		logger.debug("String[] userId");
+		
+		for(String u : userId) 
+			logger.debug("userId : {}", u);
+		
+		logger.debug("userIdList");
+		for(String u : userIdList) {
+			logger.debug("userId : {}", u);
+		}
+		
+		logger.debug("mainVO : {}", mainVO);
 		
 		return "main";
 	}
