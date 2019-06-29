@@ -53,7 +53,7 @@ public class LoginController {
 			rememberCookie(userId, rememberme, response);
 			
 			session.setAttribute("USER_INFO", userVO);
-			return "main";
+			return "tiles.main";
 		}else
 			return "login/login";
 	}

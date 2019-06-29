@@ -105,6 +105,52 @@ public class UserController {
 	}
 	
 	/**
+	* Method : userPagingListAjax
+	* 작성자 : PC19
+	* 변경이력 :
+	* @param pageVO
+	* @param model
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 Ajax 처리
+	*/
+	@RequestMapping("/pagingListAjax")
+	public String userPagingListAjax(PageVO pageVO, Model model){
+		
+		model.addAttribute("data", userService.getPaging(pageVO));
+		
+		//{data : {userList : [], paginationSize : 11}, pageVO : {page:1, pageSize : 10}
+		
+		return "jsonView";
+	}
+	
+	/**
+	* Method : userPagingListAjax
+	* 작성자 : PC19
+	* 변경이력 :
+	* @param pageVO
+	* @param model
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 Ajax 처리
+	*/
+	@RequestMapping("/pagingListAjaxHtml")
+	public String userPagingListHtml(PageVO pageVO, Model model){
+		logger.debug("=============userPagingListHtml===================");
+		
+		model.addAttribute("data", userService.getPaging(pageVO));
+		
+		//{data : {userList : [], paginationSize : 11}, pageVO : {page:1, pageSize : 10}
+		
+		return "user/userPagingListAjaxHtml";
+	}
+	
+	
+	@RequestMapping("/pagingListAjaxView")
+	public String pagingListAjaxView() {
+		
+		return "tiles.pagingListAjaxView";
+	}
+	
+	/**
 	* Method : user
 	* 작성자 : PC19
 	* 변경이력 :

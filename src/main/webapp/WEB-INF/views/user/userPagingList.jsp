@@ -1,4 +1,4 @@
-u<%@page import="kr.or.ddit.paging.model.PageVO"%>
+<%@page import="kr.or.ddit.paging.model.PageVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -65,8 +65,8 @@ u<%@page import="kr.or.ddit.paging.model.PageVO"%>
 		</table>
 
 		<!-- 사용자 수 : 105건
-							  페이지네이션 : 11건 
-						-->
+			  페이지네이션 : 11건 
+		-->
 		<div class="text-center">
 			<ul class="pagination">
 

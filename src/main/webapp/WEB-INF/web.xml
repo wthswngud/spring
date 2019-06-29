@@ -72,7 +72,7 @@
          <param-name>contextConfigLocation</param-name>
          <param-value>
    			  classpath:kr/or/ddit/config/spring/application-context.xml
-<!--    			  classpath:kr/or/ddit/config/spring/application-intercepter.xml -->
+   			  classpath:kr/or/ddit/config/spring/application-intercepter.xml
          </param-value>
       </init-param>
       <load-on-startup>1</load-on-startup>
