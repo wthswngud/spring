@@ -1,10 +1,8 @@
 package kr.or.ddit.prod.service;
 
-import java.util.List;
 import java.util.Map;
 
 import kr.or.ddit.paging.model.PageVO;
-import kr.or.ddit.prod.model.ProdVO;
 
 public interface IProdService {
 	
