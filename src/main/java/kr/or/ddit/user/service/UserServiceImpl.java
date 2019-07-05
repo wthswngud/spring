@@ -8,11 +8,13 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.ddit.paging.model.PageVO;
 import kr.or.ddit.user.dao.IuserDao;
 import kr.or.ddit.user.model.UserVO;
 
+@Transactional
 @Repository
 public class UserServiceImpl implements IuserService{
 	@Resource(name="userDaoImpl")

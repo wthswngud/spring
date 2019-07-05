@@ -5,12 +5,15 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.ddit.lprod.dao.IlprodDao;
 import kr.or.ddit.lprod.model.LprodVO;
 import kr.or.ddit.paging.model.PageVO;
 
-@Repository
+@Service
+@Transactional
 public class LprodServiceImpl implements IlprodService{
 	@Resource(name="lprodDaoImpl")
 	private IlprodDao dao;

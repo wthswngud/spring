@@ -84,7 +84,7 @@ public class LoginControllerTest extends ControllerTestEnv{
 		
 		/***Then***/
 //		assertNotNull(mvcResult);
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 		assertEquals("브라운", userVO.getName());
 	}
 	
