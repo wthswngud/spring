@@ -18,7 +18,7 @@ public class YogultTask {
 	@Resource(name = "jobLauncher")
 	private JobLauncher jobLauncher;
 	
-	@Resource(name="rangerJob")
+	@Resource(name="yogultJob")
 	private Job yogultJob;
 	
 	public void yogultTask() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
