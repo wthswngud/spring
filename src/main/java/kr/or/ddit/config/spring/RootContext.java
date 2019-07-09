@@ -17,8 +17,7 @@ import org.springframework.stereotype.Service;
  */
 
 // @Service, @Repository 만 스캔 할 것이다.
-@ImportResource({"classpath:kr/or/ddit/config/spring/application-scheduler.xml",
-				"classpath:kr/or/ddit/config/spring/application-batch.xml"})
+@ImportResource({"classpath:kr/or/ddit/config/spring/application-scheduler.xml"})
 @Configuration
 @ComponentScan(basePackages = "kr.or.ddit",
 			   useDefaultFilters = false,
